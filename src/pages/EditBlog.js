@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import AdminNav from "../../../components/nav/AdminNav";
-// import { toast } from "react-toastify";
-// import { useSelector } from "react-redux";
-// import { getProduct, updateProduct } from "../../../functions/product";
-// import { getCategories, getCategorySubs } from "../../../functions/category";
-// import FileUpload from "../../../components/forms/FileUpload";
+
 import { LoadingOutlined } from "@ant-design/icons";
 import EditForm from "../components/Form/EditForm";
 import { getCardInfoByIdAction } from "../Redux/actions/cardAction";
@@ -50,16 +45,21 @@ const UpdateBlog = ({ match, history }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    const ask=window.confirm("Are You Sure?")
+if(ask){
 
-    // dispatch(updateBlogAction(values));
+  dispatch(updateBlogAction(id,values));
+  console.log(id,values,"------")
+}
+
     // updateProduct(slug, values, user.token)
     setLoading(false);
   };
 
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(e.target.name, " ----- ", e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   setValues({ ...values, [e.target.name]: e.target.value });
+  //   console.log(e.target.name, " ----- ", e.target.value);
+  // };
 
   const handleCategoryChange = (e) => {
     e.preventDefault();
@@ -68,20 +68,20 @@ const UpdateBlog = ({ match, history }) => {
   return (
     <div className="container-fluid">
       <div className="row">
-        {JSON.stringify(card)}
+        {/* {JSON.stringify(card)} */}
         <div className="col-md-10">
           {loading ? (
             <LoadingOutlined className="text-danger h1" />
           ) : (
-            <h4>Product update</h4>
+            <h4 className="text-center">Blog Update</h4>
           )}
 
           <EditForm
             handleSubmit={handleSubmit}
-            handleChange={handleChange}
+            // handleChange={handleChange}
             setValues={setValues}
             values={card}
-            handleCategoryChange={handleCategoryChange}
+            // handleCategoryChange={handleCategoryChange}
           />
           <hr />
         </div>

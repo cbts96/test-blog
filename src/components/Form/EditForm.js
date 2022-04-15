@@ -5,7 +5,7 @@ const { Option } = Select;
 
 const EditForm = ({
   handleSubmit,
-  handleChange,
+  // handleChange,
   setValues,
   values,
   handleCatagoryChange,
@@ -15,7 +15,10 @@ const EditForm = ({
   // destructure
   const { title, content } = values.card;
 
-
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(e.target.name, " ----- ", e.target.value);
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
@@ -25,8 +28,8 @@ const EditForm = ({
           name="title"
           className="form-control"
           value={title}
-          onChange={handleChange}
-          placeholder={title}
+          onChange={(e)=>setValues(e.target.value)}
+          
         />
       </div>
 
@@ -38,7 +41,7 @@ const EditForm = ({
           className="form-control"
           value={content}
           placeholder={content}
-          onChange={handleChange}
+          onChange={(e)=>setValues(e.target.value)}
         />
       </div>
 

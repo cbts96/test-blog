@@ -3,7 +3,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutAction } from "../Redux/actions/userAction";
-import {  Menu } from "antd";
+import { Menu } from "antd";
 import {
   UserOutlined,
   SettingOutlined,
@@ -24,7 +24,7 @@ const Header = () => {
     dispatch(action);
     localStorage.removeItem(USER_LOGIN);
     localStorage.removeItem(TOKEN);
-    Redirect('/');
+    Redirect("/");
     window.location.reload();
   };
   const showModal = () => {
@@ -64,44 +64,44 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarExample01">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item active">
-                  <NavLink
-                  key="home"
-                    to="/home"
-                    className="nav-link active"
-                    aria-current="page"
-                  >
-                    Home
-                  </NavLink>
+                  <Menu>
+                    <Item className="float-right">
+                      <NavLink
+                        key="home"
+                        to="/"
+                        
+                       
+                      >
+                        Home
+                      </NavLink>
+                    </Item>
+                  </Menu>
                 </li>
                 <li className="nav-item">
                   <Menu>
-                  {!user && (
-                    <Item
-                      key="login"
-                      
-                      className="float-right"
-                    >
-                      <NavLink to="/login">Login</NavLink>
-                    </Item>
-                  )}
-                  {user && (
-                    <SubMenu
-                      icon={<SettingOutlined />}
-                      title={"Hello User!"}
-                      className="float-right"
-                    >
-                      (
-                      <Item>
-                        <NavLink to="/dashboard">Dashboard</NavLink>
-                      </Item>
-                      <Item>
+                    {!user && (
+                      <Item key="login" className="float-right">
                         <NavLink to="/login">Login</NavLink>
                       </Item>
-                      <Item icon={<LogoutOutlined />} onClick={handleLogout}>
-                        Logout
-                      </Item>
-                    </SubMenu>
-                  )}
+                    )}
+                    {user && (
+                      <SubMenu
+                        icon={<SettingOutlined />}
+                        title={"Hello User!"}
+                        className="float-right"
+                      >
+                        (
+                        <Item>
+                          <NavLink to="/dashboard">Dashboard</NavLink>
+                        </Item>
+                        <Item>
+                          <NavLink to="/login">Login</NavLink>
+                        </Item>
+                        <Item icon={<LogoutOutlined />} onClick={handleLogout}>
+                          Logout
+                        </Item>
+                      </SubMenu>
+                    )}
                   </Menu>
                 </li>
                 {/* <li className="nav-item">

@@ -14,9 +14,9 @@ export class ManageBlogService extends baseService {
     console.log(info)
     return this.post(`/api/v2/blogs`,info);
   }
-  updateBlog = (info) => {
-    console.log(info)
-    return this.put(`/api/v2/blogs`,info);
+  updateBlog = (id,info) => {
+    
+    return this.put(`/api/v2/blogs/${id}`,id,info);
   }
 }
 

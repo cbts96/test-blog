@@ -13,11 +13,14 @@ export class baseService {
     }
 
     post = (url,model) => {
+        const formData = new FormData();
+        formData.append('blog[title]','blog')
+        formData.append('blog[content]','blog')
         return Axios({
             url:`${DOMAIN}${url}`,
             method:'POST',
-            data:model,
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),"Content-Type": "multipart/form-data",} //JWT
+            data:formData,
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), "Content-Type": "multipart/form-data",} //JWT
         }) 
     }
 

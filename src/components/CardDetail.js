@@ -26,14 +26,14 @@ const CardDetail = ({ detail }) => {
         </div>
       </section>
       <div className="body-detail">
-        <div>
+        {/* <div>
           
           <Button onClick={()=>history.push(`/edit/${id}`)}>
             EDIT YOUR POST
             <EditOutlined />
 
           </Button>
-        </div>
+        </div> */}
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="container">

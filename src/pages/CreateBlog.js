@@ -66,7 +66,7 @@ const CreatePost = () => {
             {loading ? (
               <h4 className="text-danger">Loading..</h4>
             ) : (
-              <h4>Create category</h4>
+              <h2 className="text-center" style={{color:"gray"}}>Create Blog Form</h2>
             )}
 
             <FileUpload values={values} setValues={setValues} />

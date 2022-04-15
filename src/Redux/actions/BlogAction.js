@@ -19,13 +19,13 @@ export const createBlogAction = (info) => {
         }
     };
 }
-export const updateBlogAction = (info) => {
+export const updateBlogAction = (id,info) => {
     
 
     return async (dispatch) => {
         try {
             
-            const result = await manageBlogService.updateBlog(info);
+            const result = await manageBlogService.updateBlog(id,info);
             alert('Update blog thành công!',result);
 
             

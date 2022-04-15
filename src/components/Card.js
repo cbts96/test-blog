@@ -26,8 +26,8 @@ const Card = ({ arrCard }) => {
               history.push(`/detail/${id}`);
             }}>More Detail</button>
           <div className="media-body">
-            <h5 className="mt-0 mb-1">{title.toUpperCase()}</h5>
-            {content}
+            <h5 className="mt-0 mb-1">{title.toUpperCase().substring(0,35)}...</h5>
+            {content.substring(0,45)}...
           </div>
         </li>
       </ul>

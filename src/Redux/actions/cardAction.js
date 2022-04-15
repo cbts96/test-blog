@@ -6,7 +6,7 @@ export const getCardInfoAction = () => {
     try {
       const result = await manageBlogService.getInfoCard();
       dispatch({ type: GET_CARD, arrCard: result.data.data.items });
-      
+      console.log(result.data.data.items)
     } catch (err) {
       console.log("Err", err);
     }

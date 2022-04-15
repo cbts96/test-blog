@@ -17,7 +17,7 @@ const HomeTemplate = (props) => {
           <>
           
             <Header {...propsRoutes} />
-            <AdminNav />
+            
             
             <Component {...propsRoutes} />
             <FooterBottom />

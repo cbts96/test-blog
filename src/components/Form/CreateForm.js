@@ -1,5 +1,6 @@
 import React from "react";
 import { Select } from "antd";
+import AdminNav from "../DashBoard/Nav/AdminNav";
 
 const { Option } = Select;
 
@@ -17,7 +18,13 @@ const CreateForm = ({
 
   return (
     <form onSubmit={handleSubmit} enctype="multipart/form-data">
-      <div className="form-group">
+      
+      <div className="row">
+        <div className="col-md-2">
+          <AdminNav />
+        </div>
+<div className="col-md-10">
+<div className="form-group">
         <label>Title</label>
         <input
           type="text"
@@ -43,6 +50,10 @@ const CreateForm = ({
 
       <br />
       <button type="submit" className="btn btn-outline-info">Save</button>
+</div>
+      </div>
+     
+      
     </form>
   );
 };
